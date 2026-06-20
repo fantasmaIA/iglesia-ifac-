@@ -9,14 +9,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* ESTILOS VISUALES (CSS MODERNO TIPO APP) */
+        /* ESTILOS VISUALES MODERNOS */
         :root {
-            --color-fondo: #f4f6f9;
-            --color-texto: #2d3436;
-            --color-primario: #0984e3; /* Azul moderno */
-            --color-acento: #d4af37; /* Dorado del logo */
+            --color-fondo: #f8fafc;
+            --color-texto: #334155;
+            --color-primario: #0284c7; /* Azul elegante */
+            --color-acento: #d4af37; /* Dorado */
             --blanco: #ffffff;
-            --sombra-suave: 0 8px 20px rgba(0,0,0,0.06);
+            --sombra-suave: 0 10px 25px rgba(0,0,0,0.08);
         }
 
         body {
@@ -28,93 +28,39 @@
             overflow-x: hidden;
         }
 
-        /* Encabezado elegante */
+        /* Encabezado */
         .encabezado {
             background-color: var(--blanco);
             padding: 20px;
             text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            border-bottom: 3px solid var(--color-acento);
-            border-radius: 0 0 25px 25px;
-            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-bottom: 4px solid var(--color-acento);
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 30px;
         }
         .encabezado img {
             max-width: 100%;
             border-radius: 12px;
-            box-shadow: var(--sombra-suave);
         }
 
         .contenedor {
             max-width: 600px;
             margin: 0 auto;
-            padding: 0 15px 40px 15px;
+            padding: 0 20px 40px 20px;
         }
 
-        .seccion-titulo {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--color-primario);
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        /* Animaciones de Entrada */
+        .animado {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: subirSuave 0.8s ease-out forwards;
         }
+        .retraso-1 { animation-delay: 0.2s; }
+        .retraso-2 { animation-delay: 0.4s; }
+        .retraso-3 { animation-delay: 0.6s; }
 
-        /* Carrusel Táctil de Pancitos (SWIPE) */
-        .carrusel-contenedor {
-            width: 100%;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory; /* Permite que la tarjeta se acomode al centro al deslizar */
-            display: flex;
-            gap: 15px;
-            padding-bottom: 20px;
-            /* Oculta la barra de desplazamiento para que parezca app */
-            scrollbar-width: none; 
-            -ms-overflow-style: none;
-        }
-        .carrusel-contenedor::-webkit-scrollbar {
-            display: none; 
-        }
-
-        .tarjeta-pancito {
-            flex: 0 0 85%; /* Muestra un poco de la siguiente tarjeta para invitar a deslizar */
-            scroll-snap-align: center;
-            background: linear-gradient(135deg, var(--blanco) 0%, #f8faff 100%);
-            border-radius: 20px;
-            padding: 25px;
-            box-shadow: var(--sombra-suave);
-            border-left: 5px solid var(--color-acento);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .texto-biblico {
-            font-size: 16px;
-            line-height: 1.6;
-            color: #444;
-            font-style: italic;
-            margin-bottom: 15px;
-        }
-
-        .cita-biblica {
-            font-weight: 700;
-            color: var(--color-primario);
-            align-self: flex-end;
-        }
-
-        .indicador-swipe {
-            text-align: center;
-            font-size: 12px;
-            color: #888;
-            margin-top: -10px;
-            margin-bottom: 25px;
-            animation: deslizar-animacion 2s infinite;
-        }
-
-        @keyframes deslizar-animacion {
-            0%, 100% { transform: translateX(0); }
-            50% { transform: translateX(10px); }
+        @keyframes subirSuave {
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Tarjetas Generales */
@@ -124,38 +70,107 @@
             padding: 25px;
             margin-bottom: 25px;
             box-shadow: var(--sombra-suave);
-        }
-
-        .tarjeta-info p {
-            margin: 10px 0;
-            font-size: 15px;
-            line-height: 1.6;
-            color: #555;
-        }
-
-        /* Contenedor del Mapa */
-        .mapa-contenedor {
-            width: 100%;
-            height: 250px;
-            border-radius: 15px;
+            position: relative;
             overflow: hidden;
-            margin-top: 15px;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
         }
 
-        /* Botones */
-        .btn-bloqueado {
-            display: block;
-            width: 100%;
+        /* Borde decorativo lateral */
+        .tarjeta-info::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 5px;
+            background-color: var(--color-primario);
+        }
+
+        .seccion-titulo {
+            font-size: 19px;
+            font-weight: 700;
+            color: var(--color-primario);
+            margin-top: 0;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Frase de Bienvenida */
+        .frase-invitacion {
+            font-size: 17px;
+            line-height: 1.6;
+            color: #475569;
             text-align: center;
-            background-color: #e0e0e0;
-            color: #888;
-            padding: 15px 0;
-            border-radius: 50px;
-            font-weight: 600;
+            font-style: italic;
+            padding: 10px;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+            margin: 20px 0;
+        }
+
+        /* Reloj Cuenta Regresiva */
+        .reloj-contenedor {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
             margin-top: 20px;
-            text-decoration: none;
-            cursor: not-allowed;
+        }
+        .bloque-tiempo {
+            background: linear-gradient(135deg, var(--color-primario), #0369a1);
+            color: white;
+            padding: 12px;
+            border-radius: 12px;
+            min-width: 60px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(2, 132, 199, 0.3);
+            transform: scale(1);
+            transition: transform 0.3s;
+        }
+        .bloque-tiempo:hover { transform: scale(1.05); }
+        .bloque-tiempo span { display: block; font-size: 24px; font-weight: 700; }
+        .bloque-tiempo small { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.9; }
+
+        /* Carrusel de Pancitos */
+        .carrusel-contenedor {
+            width: 100%;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            display: flex;
+            gap: 15px;
+            padding-bottom: 15px;
+            scrollbar-width: none; 
+        }
+        .carrusel-contenedor::-webkit-scrollbar { display: none; }
+        .tarjeta-pancito {
+            flex: 0 0 88%;
+            scroll-snap-align: center;
+            background-color: #f8fafc;
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .texto-biblico { font-size: 16px; line-height: 1.6; color: #334155; font-style: italic; margin-bottom: 10px; }
+        .cita-biblica { font-weight: 700; color: var(--color-acento); align-self: flex-end; }
+        .indicador-swipe { text-align: center; font-size: 13px; color: #94a3b8; margin-top: 5px; animation: deslizar 2s infinite; }
+
+        @keyframes deslizar {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(8px); }
+        }
+
+        /* Mapa y Dirección */
+        .direccion-destacada { font-size: 16px; font-weight: 600; color: #1e293b; background-color: #f1f5f9; padding: 12px; border-radius: 10px; margin-bottom: 15px; text-align: center;}
+        .mapa-contenedor {
+            width: 100%; height: 250px; border-radius: 15px; overflow: hidden; box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        /* Botón Inactivo */
+        .btn-bloqueado {
+            display: block; width: 100%; text-align: center; background-color: #cbd5e1; color: #64748b; padding: 15px 0; border-radius: 50px; font-weight: 600; margin-top: 15px; text-decoration: none; cursor: not-allowed;
         }
     </style>
 </head>
@@ -166,75 +181,111 @@
     </header>
 
     <main class="contenedor">
-        
-        <h2 class="seccion-titulo"><i class="fas fa-book-open"></i> Palabra del Día</h2>
-        <div class="carrusel-contenedor" id="carrusel-pancitos">
-            </div>
-        <p class="indicador-swipe"><i class="fas fa-hand-point-right"></i> Desliza para ver más</p>
 
-        <div class="tarjeta-info">
-            <h2 class="seccion-titulo"><i class="fas fa-clock"></i> Nuestros Cultos</h2>
-            <p><strong>Día:</strong> Todos los domingos</p>
-            <p>Te invitamos a ser parte de nuestra familia espiritual. Un lugar de paz, adoración y crecimiento en la palabra de Dios. ¡Te esperamos con los brazos abiertos!</p>
+        <div class="tarjeta-info animado">
+            <h2 class="seccion-titulo"><i class="fas fa-church"></i> Nuestro Próximo Culto</h2>
+            
+            <p class="frase-invitacion">
+                "Ven tal como eres. En nuestra casa hay un lugar especial preparado para ti. Descubre el propósito, la paz y el amor que Dios tiene para tu vida."
+            </p>
+            
+            <p style="text-align: center; font-size: 16px;"><strong>Domingos de 11:30 AM a 14:00 PM</strong></p>
+            
+            <div id="reloj" class="reloj-contenedor">
+                <div class="bloque-tiempo"><span id="dias">0</span><small>Días</small></div>
+                <div class="bloque-tiempo"><span id="horas">00</span><small>Horas</small></div>
+                <div class="bloque-tiempo"><span id="minutos">00</span><small>Min</small></div>
+                <div class="bloque-tiempo"><span id="segundos">00</span><small>Seg</small></div>
+            </div>
+        </div>
+        
+        <div class="tarjeta-info animado retraso-1">
+            <h2 class="seccion-titulo"><i class="fas fa-book-open"></i> Palabra del Día</h2>
+            <div class="carrusel-contenedor" id="carrusel-pancitos"></div>
+            <p class="indicador-swipe"><i class="fas fa-hand-point-right"></i> Desliza para leer más</p>
         </div>
 
-        <div class="tarjeta-info">
-            <h2 class="seccion-titulo"><i class="fas fa-map-marked-alt"></i> ¿Cómo llegar?</h2>
-            <p>Nos encontramos ubicados en la hermosa comuna de <strong>Yungay</strong>. Puedes usar el mapa para guiarte:</p>
+        <div class="tarjeta-info animado retraso-2">
+            <h2 class="seccion-titulo"><i class="fas fa-map-marker-alt"></i> ¿Dónde estamos?</h2>
+            <div class="direccion-destacada">
+                📍 Esquina Aníbal Pinto con Tarapacá<br>
+                <span style="color: var(--color-primario); font-size: 14px;">(Casona Roja) - Yungay</span>
+            </div>
             
             <div class="mapa-contenedor">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d101314.93574971089!2d-72.0917631!3d-37.1189421!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x966a2c0022dc7f8d%3A0xc859424e8ab3c9a!2sYungay%2C%20B%C3%ADo%20B%C3%ADo!5e0!3m2!1ses-419!2scl!4v1700000000000!5m2!1ses-419!2scl" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://maps.google.com/maps?q=An%C3%ADbal%20Pinto%20con%20Tarapac%C3%A1,%20Yungay,%20Chile&t=&z=16&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
 
-        <div class="tarjeta-info">
+        <div class="tarjeta-info animado retraso-3">
             <h2 class="seccion-titulo"><i class="fas fa-hands-helping"></i> Consejería y Apoyo</h2>
-            <p>Si estás pasando por un momento difícil, necesitas oración o requieres ser asesorado, nuestra <strong>Pastora Edith</strong> está dispuesta a escucharte y guiarte.</p>
-            <p><em>Los canales de comunicación se habilitarán próximamente.</em></p>
-            
-            <a href="#" class="btn-bloqueado" onclick="event.preventDefault();">
-                <i class="fab fa-whatsapp"></i> Número Pronto Disponible
-            </a>
+            <p>Si estás pasando por un momento difícil o necesitas que alguien ore por ti, nuestra <strong>Pastora Edith</strong> está dispuesta a escucharte.</p>
+            <p style="font-size: 14px; color: #64748b;"><em>Los números de contacto se habilitarán próximamente.</em></p>
+            <a href="#" class="btn-bloqueado" onclick="event.preventDefault();"><i class="fab fa-whatsapp"></i> Pronto Disponible</a>
         </div>
 
     </main>
 
     <script>
-        // Base de datos de la Biblia (Reina Valera 1960)
+        // --- 1. LÓGICA DEL CARRUSEL DE VERSÍCULOS ---
         const biblia = [
-            { texto: "Porque yo sé los pensamientos que tengo acerca de vosotros, dice Jehová, pensamientos de paz, y no de mal, para daros el fin que esperáis.", cita: "Jeremías 29:11" },
+            { texto: "Porque yo sé los pensamientos que tengo acerca de vosotros, dice Jehová, pensamientos de paz, y no de mal...", cita: "Jeremías 29:11" },
             { texto: "Jehová es mi pastor; nada me faltará. En lugares de delicados pastos me hará descansar.", cita: "Salmos 23:1-2" },
-            { texto: "Mira que te mando que te esfuerces y seas valiente; no temas ni desmayes, porque Jehová tu Dios estará contigo en dondequiera que vayas.", cita: "Josué 1:9" },
+            { texto: "Mira que te mando que te esfuerces y seas valiente; no temas ni desmayes, porque Jehová tu Dios estará contigo...", cita: "Josué 1:9" },
             { texto: "Venid a mí todos los que estáis trabajados y cargados, y yo os haré descansar.", cita: "Mateo 11:28" },
-            { texto: "Fíate de Jehová de todo tu corazón, Y no te apoyes en tu propia prudencia.", cita: "Proverbios 3:5" },
-            { texto: "Mas los que esperan a Jehová tendrán nuevas fuerzas; levantarán alas como las águilas; correrán, y no se cansarán; caminarán, y no se fatigarán.", cita: "Isaías 40:31" },
-            { texto: "Echando toda vuestra ansiedad sobre él, porque él tiene cuidado de vosotros.", cita: "1 Pedro 5:7" },
-            { texto: "La paz os dejo, mi paz os doy; yo no os la doy como el mundo la da. No se turbe vuestro corazón, ni tenga miedo.", cita: "Juan 14:27" }
+            { texto: "Mas los que esperan a Jehová tendrán nuevas fuerzas; levantarán alas como las águilas...", cita: "Isaías 40:31" }
         ];
 
-        // Función que carga los versículos en el carrusel deslizable
         function cargarCarrusel() {
             const carrusel = document.getElementById('carrusel-pancitos');
-            
-            // Mezclamos los versículos para que cada vez que alguien entre, el orden sea distinto
-            const versiculosMezclados = biblia.sort(() => 0.5 - Math.random());
-
-            // Tomamos los primeros 5 versículos aleatorios y creamos las tarjetas
-            versiculosMezclados.slice(0, 5).forEach(versiculo => {
-                const tarjeta = document.createElement('div');
-                tarjeta.className = 'tarjeta-pancito';
-                
-                tarjeta.innerHTML = `
-                    <p class="texto-biblico">"${versiculo.texto}"</p>
-                    <span class="cita-biblica">${versiculo.cita}</span>
-                `;
-                
-                carrusel.appendChild(tarjeta);
+            const versiculos = biblia.sort(() => 0.5 - Math.random());
+            versiculos.forEach(v => {
+                carrusel.innerHTML += `<div class="tarjeta-pancito"><p class="texto-biblico">"${v.texto}"</p><span class="cita-biblica">${v.cita}</span></div>`;
             });
         }
 
-        // Ejecutar cuando cargue la página
-        window.onload = cargarCarrusel;
+        // --- 2. LÓGICA DE LA CUENTA REGRESIVA AL DOMINGO ---
+        function actualizarReloj() {
+            const ahora = new Date();
+            let culto = new Date();
+            
+            // Buscar el próximo domingo
+            let diasFaltantes = 7 - ahora.getDay();
+            if (diasFaltantes === 7) diasFaltantes = 0;
+            
+            culto.setDate(ahora.getDate() + diasFaltantes);
+            culto.setHours(11, 30, 0, 0); // Domingo a las 11:30 AM
+
+            // Si es domingo pero ya pasaron las 14:00 PM, apuntar al domingo de la otra semana
+            if (ahora.getDay() === 0 && ahora.getHours() >= 14) {
+                culto.setDate(culto.getDate() + 7);
+            }
+
+            const dif = culto - ahora;
+
+            // Si estamos dentro del horario del culto (Domingo de 11:30 a 14:00)
+            if (ahora.getDay() === 0 && ahora.getHours() >= 11 && ahora.getHours() < 14 && dif < 0) {
+                document.getElementById('reloj').innerHTML = '<div style="color:#0284c7; font-weight:bold; font-size:18px; padding:10px;"><i class="fas fa-door-open"></i> ¡Estamos en el culto! Ven a la Casona Roja.</div>';
+                return;
+            }
+
+            // Calculando el tiempo restante
+            const d = Math.floor(dif / (1000 * 60 * 60 * 24));
+            const h = Math.floor((dif / (1000 * 60 * 60)) % 24);
+            const m = Math.floor((dif / 1000 / 60) % 60);
+            const s = Math.floor((dif / 1000) % 60);
+
+            document.getElementById('dias').innerText = d;
+            document.getElementById('horas').innerText = h.toString().padStart(2, '0');
+            document.getElementById('minutos').innerText = m.toString().padStart(2, '0');
+            document.getElementById('segundos').innerText = s.toString().padStart(2, '0');
+        }
+
+        window.onload = () => {
+            cargarCarrusel();
+            setInterval(actualizarReloj, 1000);
+            actualizarReloj();
+        };
     </script>
 </body>
 </html>
