@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Iglesia IFAC - Yungay</title>
+    <!-- Importamos iconos profesionales gratuitos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ESTILOS VISUALES (CSS) */
+        :root {
+            --color-principal: #2c3e50; /* Un azul-gris profundo */
+            --color-acento: #d4af37; /* Un dorado sutil que combina con el tallado */
+            --color-contacto: #25D366; /* Color de WhatsApp por defecto */
+            --fondo-tarjetas: rgba(255, 255, 255, 0.95);
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, sans-serif;
+            /* Mantenemos el fondo de nubes y cruz para que sea brillante y abierto */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1438232992991-995b7058bbb3?q=80&w=1000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #333;
+        }
+        
+        /* Encabezado con tu nueva imagen */
+        .encabezado-imagen {
+            text-align: center;
+            padding: 40px 20px 20px 20px;
+        }
+        .encabezado-imagen img {
+            max-width: 100%; /* Se ajusta a la pantalla */
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5); /* Le da profundidad */
+        }
+        
+        .contenedor-principal {
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 0 15px 40px 15px;
+        }
+        .tarjeta {
+            background-color: var(--fondo-tarjetas);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            text-align: center;
+            border: 1px solid #d4af37; /* Borde dorado sutil */
+        }
+        .tarjeta h3 { margin-top: 0; color: var(--color-principal); font-size: 22px; }
+        
+        /* Sección del Pancito */
+        .versiculo-texto {
+            font-size: 18px;
+            font-style: italic;
+            line-height: 1.6;
+            color: #444;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease-in-out; /* Efecto de desvanecimiento suave */
+        }
+        .cita-biblica {
+            font-weight: bold;
+            color: var(--color-acento); /* Dorado */
+            margin-top: 10px;
+            display: block;
+        }
+        .btn-interactivo {
+            background-color: var(--color-principal);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(44, 62, 80, 0.4);
+        }
+        .btn-interactivo:hover { transform: scale(1.05); background-color: #1a252f; }
+        
+        /* Galería de imágenes */
+        .galeria {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .galeria img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        /* Sección de Contacto Preparada */
+        .info-contacto p { margin: 10px 0; font-size: 16px; }
+        .btn-contacto-preparado {
+            display: inline-block;
+            background-color: var(--color-principal); /* Usamos el color principal para que sea neutro */
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            cursor: default; /* El cursor no cambia a "mano" para indicar que no es clickeable */
+        }
+        .icono { margin-right: 8px; }
+    </style>
+</head>
+<body>
+
+    <!-- Encabezado con tu nueva imagen de logotipo tallado -->
+    <div class="encabezado-imagen">
+        <!-- Reemplazamos el texto por tu imagen -->
+        <img src="image_787fbf.jpg" alt="Iglesia IFAC - Yungay">
+    </div>
+
+    <div class="contenedor-principal">
+        
+        <!-- TARJETA 1: El Pancito Diario (Interactivo) -->
+        <div class="tarjeta">
+            <h3><i class="fas fa-bible icono"></i> Promesa del Día</h3>
+            <div id="contenedor-versiculo">
+                <p class="versiculo-texto" id="texto-pancito">Cargando palabra de vida...</p>
+            </div>
+            <button class="btn-interactivo" onclick="generarVersiculo()">
+                <i class="fas fa-sync-alt icono"></i> Sacar nueva palabra
+            </button>
+        </div>
+
+        <!-- TARJETA 2: Información y Horarios -->
+        <div class="tarjeta">
+            <h3><i class="fas fa-clock icono"></i> Nuestros Horarios</h3>
+            <p><strong>Culto General:</strong> Todos los domingos.</p>
+            <p>Te esperamos para compartir un tiempo de adoración y palabra de Dios en familia. ¡Todos son bienvenidos!</p>
+        </div>
+
+        <!-- TARJETA 3: Galería de Imágenes -->
+        <div class="tarjeta">
+            <h3><i class="fas fa-camera retro icono"></i> Conócenos</h3>
+            <div class="galeria">
+                <!-- REEMPLAZA ESTOS LINKS POR LAS URL DE TUS FOTOS -->
+                <img src="https://images.unsplash.com/photo-1544832514-69e0618cb3e7?q=80&w=500&auto=format&fit=crop" alt="Iglesia 1">
+                <img src="https://images.unsplash.com/photo-1478147427282-58a87119b8b4?q=80&w=500&auto=format&fit=crop" alt="Iglesia 2">
+                <img src="https://images.unsplash.com/photo-1510590337019-5ef8d3d32116?q=80&w=500&auto=format&fit=crop" alt="Iglesia 3">
+                <img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?q=80&w=500&auto=format&fit=crop" alt="Iglesia 4">
+            </div>
+        </div>
+
+        <!-- TARJETA 4: Contacto Preparado -->
+        <div class="tarjeta info-contacto">
+            <h3><i class="fas fa-hands-helping icono"></i> ¿Necesitas Apoyo?</h3>
+            <p>Si necesitas ser asesorado, guiado, o simplemente necesitas que alguien ore por ti en un momento de emergencia, no dudes en buscar a la <strong>Pastora Edith</strong>. Estamos aquí para acompañarte en tu caminar.</p>
+            <p>Por el momento, el contacto telefónico no está disponible.</p>
+            
+            <!-- Botón modificado para indicar que no está disponible aún -->
+            <div class="btn-contacto-preparado">
+                <i class="fab fa-whatsapp icono"></i> Pronto Disponible
+            </div>
+        </div>
+
+    </div>
+
+    <!-- INTERACTIVIDAD (JavaScript) -->
+    <script>
+        // Base de datos de versículos de la Reina Valera 1960
+        const baseDatosBiblia = [
+            "Porque yo sé los pensamientos que tengo acerca de vosotros, dice Jehová, pensamientos de paz, y no de mal, para daros el fin que esperáis.<br><span class='cita-biblica'>Jeremías 29:11</span>",
+            "Jehová es mi pastor; nada me faltará. En lugares de delicados pastos me hará descansar.<br><span class='cita-biblica'>Salmos 23:1-2</span>",
+            "Todo lo puedo en Cristo que me fortalece.<br><span class='cita-biblica'>Filipenses 4:13</span>",
+            "Mira que te mando que te esfuerces y seas valiente; no temas ni desmayes, porque Jehová tu Dios estará contigo en dondequiera que vayas.<br><span class='cita-biblica'>Josué 1:9</span>",
+            "Clama a mí, y yo te responderé, y te enseñaré cosas grandes y ocultas que tú no conoces.<br><span class='cita-biblica'>Jeremías 33:3</span>",
+            "Venid a mí todos los que estáis trabajados y cargados, y yo os haré descansar.<br><span class='cita-biblica'>Mateo 11:28</span>",
+            "Fíate de Jehová de todo tu corazón, Y no te apoyes en tu propia prudencia.<br><span class='cita-biblica'>Proverbios 3:5</span>",
+            "Jehová es mi luz y mi salvación; ¿de quién temeré? Jehová es la fortaleza de mi vida; ¿de quién he de atemorizarme?<br><span class='cita-biblica'>Salmos 27:1</span>",
+            "Mas los que esperan a Jehová tendrán nuevas fuerzas; levantarán alas como las águilas; correrán, y no se cansarán; caminarán, y no se fatigarán.<br><span class='cita-biblica'>Isaías 40:31</span>",
+            "Con Cristo estoy juntamente crucificado, y ya no vivo yo, mas vive Cristo en mí.<br><span class='cita-biblica'>Gálatas 2:20</span>",
+            "Cercano está Jehová a todos los que le invocan, A todos los que le invocan de veras.<br><span class='cita-biblica'>Salmos 145:18</span>",
+            "Echando toda vuestra ansiedad sobre él, porque él tiene cuidado de vosotros.<br><span class='cita-biblica'>1 Pedro 5:7</span>",
+            "Y sabemos que a los que aman a Dios, todas las cosas les ayudan a bien.<br><span class='cita-biblica'>Romanos 8:28</span>",
+            "La paz os dejo, mi paz os doy; yo no os la doy como el mundo la da. No se turbe vuestro corazón, ni tenga miedo.<br><span class='cita-biblica'>Juan 14:27</span>",
+            "Guarda tu corazón, Porque de él mana la vida.<br><span class='cita-biblica'>Proverbios 4:23</span>"
+        ];
+
+        // Función que hace la magia de cambiar el versículo
+        function generarVersiculo() {
+            const textoHTML = document.getElementById('texto-pancito');
+            
+            // Efecto de desvanecimiento
+            textoHTML.style.opacity = 0;
+            
+            setTimeout(() => {
+                // Elegir un versículo al azar de la base de datos
+                const indiceAleatorio = Math.floor(Math.random() * baseDatosBiblia.length);
+                textoHTML.innerHTML = `"${baseDatosBiblia[indiceAleatorio]}"`;
+                
+                // Que vuelva a aparecer con el nuevo texto
+                textoHTML.style.opacity = 1;
+            }, 500); // Espera medio segundo para hacer el cambio suave
+        }
+
+        // Mostrar un versículo apenas cargue la página
+        window.onload = generarVersiculo;
+    </script>
+
+</body>
+</html>
