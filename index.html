@@ -14,152 +14,120 @@
             --dorado-premium: #D4AF37;
             --dorado-brillante: #FFDF73;
             --texto-claro: #F8FAFC;
-            --cristal-oscuro: rgba(15, 15, 20, 0.65);
+            --cristal-oscuro: rgba(15, 15, 20, 0.7);
             --borde-dorado: rgba(212, 175, 55, 0.35);
         }
 
         * { box-sizing: border-box; }
 
         body {
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
             font-family: 'Montserrat', sans-serif;
             color: var(--texto-claro);
             overflow-x: hidden;
-            /* IMAGEN DE FONDO RELIGIOSA Y CINEMATOGRÁFICA */
-            background-image: 
-                linear-gradient(to bottom, rgba(10, 10, 15, 0.7), rgba(10, 10, 15, 0.9)), 
-                url('https://images.unsplash.com/photo-1544832514-69e0618cb3e7?q=80&w=1920&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background-image: linear-gradient(to bottom, rgba(10, 10, 15, 0.7), rgba(10, 10, 15, 0.9)), url('https://images.unsplash.com/photo-1544832514-69e0618cb3e7?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover; background-position: center; background-attachment: fixed;
         }
 
-        .contenedor {
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 20px 20px 60px 20px;
-        }
+        .contenedor { max-width: 500px; margin: 0 auto; padding: 20px 20px 60px 20px; }
 
-        /* Logo Elegante */
-        .header-logo {
-            text-align: center;
-            margin-bottom: 35px;
-            animation: fadeInDown 1.2s ease-out;
-        }
-        .header-logo img {
-            max-width: 100%;
-            border-radius: 16px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-            border: 2px solid var(--borde-dorado);
-        }
+        /* Logo */
+        .header-logo { text-align: center; margin-bottom: 35px; animation: fadeInDown 1s ease-out; }
+        .header-logo img { max-width: 100%; border-radius: 16px; box-shadow: 0 15px 35px rgba(0,0,0,0.5); border: 2px solid var(--borde-dorado); }
 
-        /* Tarjetas de Cristal Oscuro Premium */
+        /* Tarjetas Principales */
         .tarjeta-premium {
-            background: var(--cristal-oscuro);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-radius: 20px;
-            padding: 30px 25px;
-            margin-bottom: 30px;
-            border: 1px solid var(--borde-dorado);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1);
-            position: relative;
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s ease-out forwards;
+            background: var(--cristal-oscuro); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            border-radius: 20px; padding: 30px 25px; margin-bottom: 30px; border: 1px solid var(--borde-dorado);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4); opacity: 0; transform: translateY(30px); animation: fadeInUp 0.8s ease-out forwards;
         }
 
-        /* Resplandor sutil en la tarjeta principal */
-        .tarjeta-premium::before {
-            content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
-            background: linear-gradient(to right, transparent, rgba(212, 175, 55, 0.1), transparent);
-            transform: skewX(-25deg); animation: brillo 6s infinite;
-        }
-
-        /* Tipografía de Lujo para Títulos */
-        .titulo-elegante {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            color: var(--dorado-premium);
-            margin: 0 0 20px 0;
-            text-align: center;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
-        
-        .titulo-elegante i { margin-right: 8px; font-size: 20px; }
-
-        /* Mensaje de Bienvenida */
-        .texto-bienvenida {
-            text-align: center; font-size: 15px; line-height: 1.8; color: #CBD5E1; font-style: italic; font-weight: 300;
-        }
-
+        /* Tipografía */
+        .titulo-elegante { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--dorado-premium); margin: 0 0 20px 0; text-align: center; font-weight: 600; }
+        .texto-bienvenida { text-align: center; font-size: 15px; line-height: 1.8; color: #CBD5E1; font-style: italic; font-weight: 300; }
         .texto-bienvenida strong { color: var(--dorado-brillante); font-weight: 500;}
 
-        /* Cuenta Regresiva de Alta Gama */
-        .reloj-grid {
-            display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 25px;
-        }
-        .bloque-tiempo {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid var(--borde-dorado);
-            border-radius: 12px; padding: 12px 5px; text-align: center;
-            box-shadow: inset 0 0 15px rgba(212, 175, 55, 0.05);
-        }
-        .bloque-tiempo span {
-            display: block; font-family: 'Playfair Display', serif; font-size: 26px; color: var(--dorado-brillante); line-height: 1; margin-bottom: 5px;
-        }
-        .bloque-tiempo small {
-            font-size: 9px; text-transform: uppercase; letter-spacing: 1.5px; color: #94A3B8;
-        }
+        /* Reloj */
+        .reloj-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 25px; }
+        .bloque-tiempo { background: rgba(0, 0, 0, 0.4); border: 1px solid var(--borde-dorado); border-radius: 12px; padding: 12px 5px; text-align: center; }
+        .bloque-tiempo span { display: block; font-family: 'Playfair Display', serif; font-size: 26px; color: var(--dorado-brillante); line-height: 1; margin-bottom: 5px; }
+        .bloque-tiempo small { font-size: 9px; text-transform: uppercase; letter-spacing: 1.5px; color: #94A3B8; }
 
-        /* Carrusel Swipeable Premium */
-        .carrusel-wrapper {
-            width: 100%; overflow-x: auto; scroll-snap-type: x mandatory; display: flex; gap: 15px; padding-bottom: 10px;
-        }
+        /* Carrusel Swipeable */
+        .carrusel-wrapper { width: 100%; overflow-x: auto; scroll-snap-type: x mandatory; display: flex; gap: 15px; padding-bottom: 10px; }
         .carrusel-wrapper::-webkit-scrollbar { display: none; }
-        
-        .tarjeta-versiculo {
-            flex: 0 0 90%; scroll-snap-align: center;
-            background: linear-gradient(145deg, rgba(20,20,25,0.8), rgba(10,10,15,0.9));
-            border-radius: 16px; padding: 25px; border-left: 3px solid var(--dorado-premium);
-            display: flex; flex-direction: column; justify-content: center;
-        }
+        .tarjeta-versiculo { flex: 0 0 90%; scroll-snap-align: center; background: linear-gradient(145deg, rgba(20,20,25,0.8), rgba(10,10,15,0.9)); border-radius: 16px; padding: 25px; border-left: 3px solid var(--dorado-premium); display: flex; flex-direction: column; justify-content: center; }
         .texto-biblico { font-family: 'Playfair Display', serif; font-size: 18px; line-height: 1.6; color: #E2E8F0; font-style: italic; margin: 0 0 15px 0;}
         .cita-biblica { font-size: 13px; color: var(--dorado-premium); font-weight: 600; text-align: right; letter-spacing: 1px; text-transform: uppercase;}
-        
         .swipe-hint { text-align: center; font-size: 12px; color: #64748B; margin-top: 15px; letter-spacing: 1px; text-transform: uppercase; animation: pulse 2s infinite;}
 
         /* Ubicación */
-        .caja-direccion {
-            background: rgba(0,0,0,0.3); padding: 15px; border-radius: 12px; text-align: center; margin-bottom: 20px; border: 1px dashed rgba(212, 175, 55, 0.4);
-        }
+        .caja-direccion { background: rgba(0,0,0,0.3); padding: 15px; border-radius: 12px; text-align: center; margin-bottom: 20px; border: 1px dashed rgba(212, 175, 55, 0.4); }
         .caja-direccion p { margin: 5px 0; font-size: 15px; }
         .casona-roja { font-family: 'Playfair Display', serif; color: var(--dorado-brillante); font-size: 20px; font-weight: 600; display: block; margin-top: 5px;}
+        .mapa-premium { width: 100%; height: 220px; border-radius: 15px; border: 2px solid var(--borde-dorado); filter: grayscale(20%) contrast(110%); }
 
-        .mapa-premium {
-            width: 100%; height: 220px; border-radius: 15px; border: 2px solid var(--borde-dorado); overflow: hidden; filter: grayscale(20%) contrast(110%);
+        /* --- NUEVO: BOTONES INTERACTIVOS --- */
+        .btn-interactivo {
+            background: linear-gradient(135deg, rgba(212,175,55,0.15), rgba(0,0,0,0.4));
+            border: 1px solid var(--dorado-premium);
+            color: var(--dorado-brillante);
+            padding: 18px 20px;
+            border-radius: 15px;
+            width: 100%;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+        .btn-interactivo i { font-size: 20px; }
+        .btn-interactivo:active { transform: scale(0.95); } /* Efecto de presionar en celular */
+
+        /* --- NUEVO: PANTALLAS EMERGENTES (MODALES) --- */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            z-index: 1000; display: none; justify-content: center; align-items: center; padding: 20px;
+            opacity: 0; transition: opacity 0.3s ease;
+        }
+        .modal-overlay.activo { display: flex; opacity: 1; }
+        
+        .modal-contenido {
+            background: var(--cristal-oscuro); border: 1px solid var(--dorado-premium); border-radius: 20px;
+            padding: 30px; width: 100%; max-width: 450px; max-height: 85vh; overflow-y: auto;
+            position: relative; transform: translateY(30px); transition: transform 0.3s ease;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+        }
+        .modal-overlay.activo .modal-contenido { transform: translateY(0); }
+        
+        .btn-cerrar {
+            position: absolute; top: 15px; right: 20px; background: none; border: none;
+            color: #94A3B8; font-size: 28px; cursor: pointer; padding: 0;
+        }
+        
+        /* Contenido interno de la pantalla de ayuda */
+        .modal-texto-base { font-size: 15px; color: #CBD5E1; line-height: 1.7; margin-bottom: 20px; }
+        .modal-subtitulo { color: var(--dorado-brillante); font-family: 'Playfair Display', serif; font-size: 20px; margin-top: 25px; margin-bottom: 10px; border-bottom: 1px solid var(--borde-dorado); padding-bottom: 5px; }
+        
+        .caja-verso-apoyo {
+            background: rgba(212, 175, 55, 0.1); border-left: 4px solid var(--dorado-premium);
+            padding: 15px; border-radius: 0 10px 10px 0; margin-bottom: 20px; font-style: italic;
         }
 
-        /* Botón Inactivo Premium */
-        .btn-bloqueado {
-            display: block; width: 100%; text-align: center; background: rgba(255,255,255,0.05); color: #94A3B8;
-            padding: 16px 0; border-radius: 50px; font-weight: 500; margin-top: 20px; text-decoration: none;
-            border: 1px solid rgba(255,255,255,0.1); cursor: not-allowed; letter-spacing: 1px; transition: 0.3s;
-        }
+        .btn-bloqueado { display: block; width: 100%; text-align: center; background: rgba(255,255,255,0.05); color: #94A3B8; padding: 15px 0; border-radius: 50px; font-weight: 500; margin-top: 15px; text-decoration: none; border: 1px solid rgba(255,255,255,0.1); cursor: not-allowed; }
 
-        /* Animaciones clave */
+        /* Animaciones base */
         @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
         @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes brillo { 100% { left: 200%; } }
         @keyframes pulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
-        
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
-
+        .delay-1 { animation-delay: 0.2s; } .delay-2 { animation-delay: 0.4s; } .delay-3 { animation-delay: 0.6s; }
     </style>
 </head>
 <body>
@@ -172,14 +140,11 @@
 
         <div class="tarjeta-premium">
             <h2 class="titulo-elegante"><i class="fas fa-church"></i> Bienvenidos a Casa</h2>
-            
-            <p class="texto-bienvenida">
-                "Ven tal como eres. En la <strong>Casona Roja</strong> hemos preparado un lugar especial para ti. Descubre la paz, el amor y el propósito que Dios tiene para tu vida."
-            </p>
+            <p class="texto-bienvenida">"Ven tal como eres. En la <strong>Casona Roja</strong> hemos preparado un lugar especial para ti."</p>
             
             <div style="text-align: center; margin-top: 20px;">
-                <span style="font-family: 'Playfair Display', serif; font-size: 18px; color: var(--dorado-premium);">Nuestro Próximo Culto</span><br>
-                <span style="font-size: 14px; color: #94A3B8; letter-spacing: 1px;">DOMINGOS • 11:30 AM a 14:00 PM</span>
+                <span style="font-family: 'Playfair Display', serif; font-size: 18px; color: var(--dorado-premium);">Próximo Culto</span><br>
+                <span style="font-size: 14px; color: #94A3B8;">DOMINGOS • 11:30 AM</span>
             </div>
             
             <div id="reloj" class="reloj-grid">
@@ -192,72 +157,102 @@
 
         <div class="tarjeta-premium delay-1">
             <h2 class="titulo-elegante"><i class="fas fa-book-reader"></i> Alimento para el Alma</h2>
-            
-            <div class="carrusel-wrapper" id="carrusel-pancitos">
-                </div>
+            <div class="carrusel-wrapper" id="carrusel-pancitos"></div>
             <div class="swipe-hint">← Desliza para leer más →</div>
         </div>
 
         <div class="tarjeta-premium delay-2">
             <h2 class="titulo-elegante"><i class="fas fa-map-marked-alt"></i> ¿Dónde estamos?</h2>
-            
             <div class="caja-direccion">
                 <p>Esquina Aníbal Pinto con Tarapacá</p>
                 <span class="casona-roja">La Casona Roja • Yungay</span>
             </div>
-            
             <iframe class="mapa-premium" src="https://maps.google.com/maps?q=Aníbal%20Pinto%20con%20Tarapacá,%20Yungay,%20Chile&t=&z=16&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
         </div>
 
         <div class="tarjeta-premium delay-3">
-            <h2 class="titulo-elegante"><i class="fas fa-hands-helping"></i> Estamos Contigo</h2>
-            <p class="texto-bienvenida" style="margin-bottom: 0;">
-                Si tu corazón está cargado, necesitas un consejo o simplemente requieres que alguien ore por ti, nuestra <strong>Pastora Edith</strong> está dispuesta a escucharte con amor.
-            </p>
-            <p style="text-align: center; font-size: 12px; color: #64748B; margin-top: 15px; letter-spacing: 1px;">CANAL DE ATENCIÓN EN PREPARACIÓN</p>
+            <h2 class="titulo-elegante"><i class="fas fa-compass"></i> Conecta con nosotros</h2>
+            <p class="texto-bienvenida" style="margin-bottom: 20px;">Presiona una opción para más información:</p>
             
-            <a href="#" class="btn-bloqueado" onclick="event.preventDefault();"><i class="fab fa-whatsapp"></i> WhatsApp Pronto Disponible</a>
+            <button class="btn-interactivo" onclick="abrirPantalla('pantalla-ayuda')">
+                <i class="fas fa-hands-helping"></i> ¿Necesitas Ayuda?
+            </button>
+            
+            <button class="btn-interactivo" onclick="abrirPantalla('pantalla-oracion')">
+                <i class="fas fa-pray"></i> Pide una Oración
+            </button>
         </div>
 
     </div>
 
+    <div class="modal-overlay" id="pantalla-ayuda">
+        <div class="modal-contenido">
+            <button class="btn-cerrar" onclick="cerrarPantalla('pantalla-ayuda')">&times;</button>
+            
+            <h2 class="titulo-elegante"><i class="fas fa-hands-helping"></i> Estamos Contigo</h2>
+            
+            <div class="caja-verso-apoyo">
+                "Cercano está Jehová a los quebrantados de corazón; Y salva a los contritos de espíritu."<br>
+                <strong style="color: var(--dorado-premium); font-size: 13px;">- SALMOS 34:18</strong>
+            </div>
+
+            <h3 class="modal-subtitulo">¿Cómo hablar con Dios?</h3>
+            <p class="modal-texto-base">
+                Hablar con Dios es tan sencillo como hablar con tu mejor amigo. No necesitas palabras elegantes ni fórmulas repetidas, solo un corazón sincero. Cuéntale lo que sientes, tus miedos, tus alegrías y tus cargas. Él siempre te escucha, en cualquier lugar y en cualquier momento.
+            </p>
+
+            <h3 class="modal-subtitulo">¿Con quién puedo hablar?</h3>
+            <p class="modal-texto-base">
+                Si tu corazón está cargado, necesitas un consejo o requieres que alguien te escuche, nuestra <strong>Pastora Edith</strong> está dispuesta a acompañarte con amor y reserva.
+            </p>
+            
+            <a href="#" class="btn-bloqueado" onclick="event.preventDefault();"><i class="fab fa-whatsapp"></i> WhatsApp Pronto Disponible</a>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="pantalla-oracion">
+        <div class="modal-contenido">
+            <button class="btn-cerrar" onclick="cerrarPantalla('pantalla-oracion')">&times;</button>
+            <h2 class="titulo-elegante"><i class="fas fa-pray"></i> Oramos por ti</h2>
+            <p class="modal-texto-base">Creemos en el poder de la oración. Si tienes una petición especial, por salud, familia o trabajo, queremos apoyarte.</p>
+            <div class="caja-verso-apoyo">"Clama a mí, y yo te responderé..." <strong style="color: var(--dorado-premium); font-size: 13px;">- JEREMÍAS 33:3</strong></div>
+            <a href="#" class="btn-bloqueado" onclick="event.preventDefault();"><i class="fab fa-whatsapp"></i> Enviar petición (Próximamente)</a>
+        </div>
+    </div>
+
     <script>
-        // --- 1. LÓGICA DEL CARRUSEL DE VERSÍCULOS ---
+        // Función para abrir la pantalla
+        function abrirPantalla(idPantalla) {
+            document.getElementById(idPantalla).classList.add('activo');
+            document.body.style.overflow = 'hidden'; // Evita que la página del fondo se mueva
+        }
+
+        // Función para cerrar la pantalla
+        function cerrarPantalla(idPantalla) {
+            document.getElementById(idPantalla).classList.remove('activo');
+            document.body.style.overflow = 'auto'; // Vuelve a permitir mover la página
+        }
+
+        // Carrusel y Reloj (se mantienen igual de perfectos)
         const biblia = [
             { texto: "El amor es paciente, es bondadoso. El amor no es envidioso ni jactancioso ni orgulloso.", cita: "1 Corintios 13:4" },
-            { texto: "Con amor eterno te he amado; por tanto, te prolongué mi misericordia.", cita: "Jeremías 31:3" },
-            { texto: "Porque yo sé los pensamientos que tengo acerca de vosotros, dice Jehová, pensamientos de paz, y no de mal.", cita: "Jeremías 29:11" },
-            { texto: "Sobre todo, vístanse de amor, que es el vínculo perfecto.", cita: "Colosenses 3:14" },
-            { texto: "El Señor es tu guardador; el Señor es tu sombra a tu mano derecha.", cita: "Salmo 121:5" }
+            { texto: "Porque yo sé los pensamientos que tengo acerca de vosotros, dice Jehová, pensamientos de paz...", cita: "Jeremías 29:11" },
+            { texto: "Sobre todo, vístanse de amor, que es el vínculo perfecto.", cita: "Colosenses 3:14" }
         ];
 
         function cargarCarrusel() {
             const carrusel = document.getElementById('carrusel-pancitos');
             const versiculos = biblia.sort(() => 0.5 - Math.random());
             versiculos.forEach(v => {
-                carrusel.innerHTML += `
-                <div class="tarjeta-versiculo">
-                    <p class="texto-biblico">"${v.texto}"</p>
-                    <span class="cita-biblica">${v.cita}</span>
-                </div>`;
+                carrusel.innerHTML += `<div class="tarjeta-versiculo"><p class="texto-biblico">"${v.texto}"</p><span class="cita-biblica">${v.cita}</span></div>`;
             });
         }
 
-        // --- 2. LÓGICA DE LA CUENTA REGRESIVA ---
         function actualizarReloj() {
-            const ahora = new Date();
-            let culto = new Date();
-            
-            let diasFaltantes = 7 - ahora.getDay();
-            if (diasFaltantes === 7) diasFaltantes = 0;
-            
-            culto.setDate(ahora.getDate() + diasFaltantes);
-            culto.setHours(11, 30, 0, 0);
-
-            if (ahora.getDay() === 0 && ahora.getHours() >= 14) {
-                culto.setDate(culto.getDate() + 7);
-            }
-
+            const ahora = new Date(); let culto = new Date();
+            let diasFaltantes = 7 - ahora.getDay(); if (diasFaltantes === 7) diasFaltantes = 0;
+            culto.setDate(ahora.getDate() + diasFaltantes); culto.setHours(11, 30, 0, 0);
+            if (ahora.getDay() === 0 && ahora.getHours() >= 14) { culto.setDate(culto.getDate() + 7); }
             const dif = culto - ahora;
 
             if (ahora.getDay() === 0 && ahora.getHours() >= 11 && ahora.getHours() < 14 && dif < 0) {
@@ -265,22 +260,13 @@
                 return;
             }
 
-            const d = Math.floor(dif / (1000 * 60 * 60 * 24));
-            const h = Math.floor((dif / (1000 * 60 * 60)) % 24);
-            const m = Math.floor((dif / 1000 / 60) % 60);
-            const s = Math.floor((dif / 1000) % 60);
-
-            document.getElementById('dias').innerText = d;
-            document.getElementById('horas').innerText = h.toString().padStart(2, '0');
-            document.getElementById('minutos').innerText = m.toString().padStart(2, '0');
-            document.getElementById('segundos').innerText = s.toString().padStart(2, '0');
+            document.getElementById('dias').innerText = Math.floor(dif / (1000 * 60 * 60 * 24));
+            document.getElementById('horas').innerText = Math.floor((dif / (1000 * 60 * 60)) % 24).toString().padStart(2, '0');
+            document.getElementById('minutos').innerText = Math.floor((dif / 1000 / 60) % 60).toString().padStart(2, '0');
+            document.getElementById('segundos').innerText = Math.floor((dif / 1000) % 60).toString().padStart(2, '0');
         }
 
-        window.onload = () => {
-            cargarCarrusel();
-            setInterval(actualizarReloj, 1000);
-            actualizarReloj();
-        };
+        window.onload = () => { cargarCarrusel(); setInterval(actualizarReloj, 1000); actualizarReloj(); };
     </script>
 </body>
 </html>
