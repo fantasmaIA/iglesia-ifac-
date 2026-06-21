@@ -5,42 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Iglesia IFAC - Yungay</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* ESTILOS VISUALES MODERNOS (APP) */
+        /* PALETA DE COLORES Y VARIABLES */
         :root {
-            --color-fondo: #f8fafc;
-            --color-texto: #334155;
-            --color-primario: #0284c7; 
-            --color-acento: #d4af37; 
-            --blanco: #ffffff;
-            --sombra-suave: 0 10px 25px rgba(0,0,0,0.08);
+            --color-texto: #2d3748;
+            --color-amor: #e11d48; /* Un tono cereza/rosa cálido */
+            --color-dorado: #d4af37;
+            --cristal-fondo: rgba(255, 255, 255, 0.85);
+            --cristal-borde: rgba(255, 255, 255, 0.4);
+            --sombra-suave: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
         }
 
         body {
             margin: 0;
             padding: 0;
             font-family: 'Poppins', sans-serif;
-            background-color: var(--color-fondo);
             color: var(--color-texto);
             overflow-x: hidden;
+            /* Imagen de fondo cálida y llena de luz */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1440590882496-ceb4408544e3?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
 
-        /* Encabezado con tu Logo de Madera */
+        /* Encabezado Flotante */
         .encabezado {
-            background-color: var(--blanco);
-            padding: 20px;
+            margin: 20px auto;
+            max-width: 560px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border-bottom: 4px solid var(--color-acento);
-            border-radius: 0 0 30px 30px;
-            margin-bottom: 30px;
+            padding: 0 20px;
+            animation: bajarSuave 1s ease-out forwards;
         }
         .encabezado img {
             max-width: 100%;
-            border-radius: 12px;
+            border-radius: 20px;
+            box-shadow: var(--sombra-suave);
+            border: 2px solid var(--cristal-borde);
         }
 
         .contenedor {
@@ -49,133 +53,126 @@
             padding: 0 20px 40px 20px;
         }
 
-        /* Animaciones para que la página cobre vida */
+        /* Animaciones */
         .animado {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(20px);
             animation: subirSuave 0.8s ease-out forwards;
         }
         .retraso-1 { animation-delay: 0.2s; }
         .retraso-2 { animation-delay: 0.4s; }
         .retraso-3 { animation-delay: 0.6s; }
 
-        @keyframes subirSuave {
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes subirSuave { to { opacity: 1; transform: translateY(0); } }
+        @keyframes bajarSuave { 
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); } 
         }
 
-        /* Tarjetas Estilo App */
-        .tarjeta-info {
-            background-color: var(--blanco);
-            border-radius: 20px;
-            padding: 25px;
+        /* Tarjetas Estilo Cristal (Glassmorphism) */
+        .tarjeta-cristal {
+            background: var(--cristal-fondo);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 24px;
+            padding: 30px;
             margin-bottom: 25px;
             box-shadow: var(--sombra-suave);
-            position: relative;
-            overflow: hidden;
-        }
-        .tarjeta-info::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 5px;
-            background-color: var(--color-primario);
+            border: 1px solid var(--cristal-borde);
+            text-align: center;
         }
 
         .seccion-titulo {
-            font-size: 19px;
+            font-size: 20px;
             font-weight: 700;
-            color: var(--color-primario);
+            color: var(--color-amor);
             margin-top: 0;
             margin-bottom: 15px;
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 10px;
         }
 
-        /* Frase de Bienvenida Bonita */
-        .frase-invitacion {
-            font-size: 17px;
-            line-height: 1.6;
-            color: #475569;
-            text-align: center;
-            font-style: italic;
-            padding: 15px;
-            background-color: #f0f9ff;
-            border-radius: 10px;
-            border-left: 4px solid var(--color-primario);
-            margin: 20px 0;
+        /* Mensaje de Bienvenida */
+        .mensaje-amor {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #4a5568;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+        .corazon-latido {
+            color: var(--color-amor);
+            animation: latir 1.5s infinite;
+            display: inline-block;
+        }
+        @keyframes latir {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
         }
 
-        /* Reloj de Cuenta Regresiva al Culto */
+        /* Reloj de Cuenta Regresiva */
         .reloj-contenedor {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
+            gap: 12px;
+            margin-top: 15px;
         }
         .bloque-tiempo {
-            background: linear-gradient(135deg, var(--color-primario), #0369a1);
-            color: white;
-            padding: 10px;
-            border-radius: 12px;
-            min-width: 60px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(2, 132, 199, 0.3);
+            background: rgba(225, 29, 72, 0.1);
+            border: 1px solid rgba(225, 29, 72, 0.2);
+            color: var(--color-amor);
+            padding: 12px;
+            border-radius: 15px;
+            min-width: 65px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
         }
-        .bloque-tiempo span { display: block; font-size: 22px; font-weight: 700; }
-        .bloque-tiempo small { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.9; }
+        .bloque-tiempo span { display: block; font-size: 24px; font-weight: 700; }
+        .bloque-tiempo small { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
 
-        /* --- PANCITOS DESLIZABLES (SWIPE) --- */
+        /* --- PANCITOS DESLIZABLES --- */
         .carrusel-contenedor {
             width: 100%;
-            overflow-x: scroll; /* Obliga a que se pueda deslizar */
-            -webkit-overflow-scrolling: touch; /* Suavidad en celulares */
+            overflow-x: scroll;
+            -webkit-overflow-scrolling: touch;
             scroll-snap-type: x mandatory;
             display: flex;
             gap: 15px;
-            padding-bottom: 15px;
+            padding-bottom: 10px;
         }
-        /* Oculta la barra fea en PC pero permite deslizar */
-        .carrusel-contenedor::-webkit-scrollbar { height: 8px; }
-        .carrusel-contenedor::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 10px; }
-        .carrusel-contenedor::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .carrusel-contenedor::-webkit-scrollbar { display: none; }
         
         .tarjeta-pancito {
-            flex: 0 0 85%; /* Tamaño perfecto para invitar a deslizar */
+            flex: 0 0 88%;
             scroll-snap-align: center;
-            background-color: #fffbeb; /* Un tono crema suave */
-            border-radius: 15px;
-            padding: 20px;
-            border: 1px solid #fde68a;
+            background: linear-gradient(135deg, #ffffff, #fff5f5);
+            border-radius: 20px;
+            padding: 25px;
+            border: 1px solid #fed7e2;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(225, 29, 72, 0.05);
         }
-        .texto-biblico { font-size: 16px; line-height: 1.6; color: #334155; font-style: italic; margin-bottom: 10px; }
-        .cita-biblica { font-weight: 700; color: var(--color-acento); align-self: flex-end; }
-        .indicador-swipe { text-align: center; font-size: 14px; color: #64748b; margin-top: 5px; font-weight: bold; animation: deslizar 1.5s infinite; }
-
-        @keyframes deslizar {
-            0%, 100% { transform: translateX(0); }
-            50% { transform: translateX(10px); }
-        }
+        .texto-biblico { font-size: 17px; line-height: 1.6; color: #2d3748; font-style: italic; margin-bottom: 15px; font-weight: 500;}
+        .cita-biblica { font-weight: 700; color: var(--color-dorado); align-self: flex-end; font-size: 15px; }
+        .indicador-swipe { text-align: center; font-size: 13px; color: #718096; margin-top: 10px; font-weight: 600; opacity: 0.8; }
 
         /* Ubicación */
-        .direccion-destacada { 
-            font-size: 16px; font-weight: 600; color: #1e293b; background-color: #f1f5f9; 
-            padding: 15px; border-radius: 10px; margin-bottom: 15px; text-align: center;
-            border: 1px dashed var(--color-primario);
+        .direccion-texto {
+            font-size: 16px; font-weight: 600; color: #2d3748; margin-bottom: 15px;
+        }
+        .casona-destacada {
+            color: var(--color-amor); font-weight: 700; font-size: 18px; display: block; margin-top: 5px;
         }
         .mapa-contenedor {
-            width: 100%; height: 250px; border-radius: 15px; overflow: hidden; box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+            width: 100%; height: 250px; border-radius: 18px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border: 3px solid rgba(255,255,255,0.8);
         }
 
         /* Botón Bloqueado */
         .btn-bloqueado {
-            display: block; width: 100%; text-align: center; background-color: #cbd5e1; color: #64748b; padding: 15px 0; border-radius: 50px; font-weight: 600; margin-top: 15px; text-decoration: none; cursor: not-allowed;
+            display: inline-block; width: 90%; background-color: rgba(203, 213, 225, 0.5); color: #64748b; padding: 15px 0; border-radius: 50px; font-weight: 600; margin-top: 15px; text-decoration: none; cursor: not-allowed; border: 1px solid #cbd5e1;
         }
     </style>
 </head>
@@ -187,16 +184,18 @@
 
     <main class="contenedor">
 
-        <div class="tarjeta-info animado">
-            <h2 class="seccion-titulo"><i class="fas fa-church"></i> Nuestro Próximo Culto</h2>
+        <div class="tarjeta-cristal animado">
+            <h2 class="seccion-titulo">Bienvenido a Casa <i class="fas fa-heart corazon-latido"></i></h2>
             
-            <p class="frase-invitacion">
-                "Ven tal como eres. En nuestra casa hay un lugar especial preparado para ti. Descubre el propósito, la paz y el amor que Dios tiene para tu vida."
+            <p class="mensaje-amor">
+                No importa cómo llegues hoy, aquí hay un abrazo, una oración y un lugar especial preparado para ti. Descubre el amor incondicional que Dios tiene para tu vida.
             </p>
             
-            <p style="text-align: center; font-size: 18px; color: var(--color-primario);">
-                <strong><i class="far fa-calendar-alt"></i> Domingos</strong><br>
-                11:30 AM a 14:00 PM
+            <hr style="border: 0; border-top: 1px solid rgba(0,0,0,0.08); margin: 20px 0;">
+            
+            <p style="font-size: 17px; color: #4a5568; font-weight: 600;">
+                <i class="far fa-calendar-alt" style="color: var(--color-dorado);"></i> Culto Dominical<br>
+                <span style="font-size: 15px; font-weight: 400;">11:30 AM a 14:00 PM</span>
             </p>
             
             <div id="reloj" class="reloj-contenedor">
@@ -207,17 +206,17 @@
             </div>
         </div>
         
-        <div class="tarjeta-info animado retraso-1">
-            <h2 class="seccion-titulo"><i class="fas fa-book-open"></i> Palabra del Día</h2>
+        <div class="tarjeta-cristal animado retraso-1">
+            <h2 class="seccion-titulo"><i class="fas fa-dove"></i> Alimento para el Alma</h2>
             <div class="carrusel-contenedor" id="carrusel-pancitos"></div>
-            <p class="indicador-swipe">👉 Desliza hacia el lado para leer más</p>
+            <p class="indicador-swipe"><i class="fas fa-arrows-alt-h"></i> Desliza para leer más</p>
         </div>
 
-        <div class="tarjeta-info animado retraso-2">
-            <h2 class="seccion-titulo"><i class="fas fa-map-marker-alt"></i> ¿Dónde estamos?</h2>
-            <div class="direccion-destacada">
-                📍 Esquina Aníbal Pinto con Tarapacá<br>
-                <span style="color: #e11d48; font-size: 15px; font-weight: bold;">(Casona Roja) - Yungay</span>
+        <div class="tarjeta-cristal animado retraso-2">
+            <h2 class="seccion-titulo"><i class="fas fa-map-marked-alt"></i> ¿Dónde nos reunimos?</h2>
+            <div class="direccion-texto">
+                Esquina Aníbal Pinto con Tarapacá<br>
+                <span class="casona-destacada">La Casona Roja - Yungay</span>
             </div>
             
             <div class="mapa-contenedor">
@@ -225,10 +224,10 @@
             </div>
         </div>
 
-        <div class="tarjeta-info animado retraso-3">
-            <h2 class="seccion-titulo"><i class="fas fa-hands-helping"></i> Consejería y Apoyo</h2>
-            <p>Si estás pasando por un momento difícil o necesitas que alguien ore por ti, nuestra <strong>Pastora Edith</strong> está dispuesta a escucharte.</p>
-            <p style="font-size: 14px; color: #64748b;"><em>El número de WhatsApp se habilitará próximamente.</em></p>
+        <div class="tarjeta-cristal animado retraso-3" style="margin-bottom: 60px;">
+            <h2 class="seccion-titulo"><i class="fas fa-hands-helping"></i> Estamos contigo</h2>
+            <p style="color: #4a5568; margin-bottom: 5px;">Si tu corazón está cargado, necesitas un consejo o simplemente alguien que ore por ti, la <strong>Pastora Edith</strong> está dispuesta a escucharte con amor.</p>
+            <p style="font-size: 13px; color: #718096; font-style: italic;">El canal de WhatsApp se habilitará muy pronto.</p>
             <a href="#" class="btn-bloqueado" onclick="event.preventDefault();"><i class="fab fa-whatsapp"></i> Pronto Disponible</a>
         </div>
 
@@ -237,11 +236,11 @@
     <script>
         // --- 1. LÓGICA DEL CARRUSEL DE VERSÍCULOS ---
         const biblia = [
-            { texto: "Porque yo sé los pensamientos que tengo acerca de vosotros, dice Jehová, pensamientos de paz, y no de mal, para daros el fin que esperáis.", cita: "Jeremías 29:11" },
-            { texto: "Jehová es mi pastor; nada me faltará. En lugares de delicados pastos me hará descansar.", cita: "Salmos 23:1-2" },
-            { texto: "Mira que te mando que te esfuerces y seas valiente; no temas ni desmayes, porque Jehová tu Dios estará contigo en dondequiera que vayas.", cita: "Josué 1:9" },
-            { texto: "Venid a mí todos los que estáis trabajados y cargados, y yo os haré descansar.", cita: "Mateo 11:28" },
-            { texto: "Mas los que esperan a Jehová tendrán nuevas fuerzas; levantarán alas como las águilas; correrán y no se cansarán...", cita: "Isaías 40:31" }
+            { texto: "El amor es paciente, es bondadoso. El amor no es envidioso ni jactancioso ni orgulloso.", cita: "1 Corintios 13:4" },
+            { texto: "Nosotros amamos a Dios porque él nos amó primero.", cita: "1 Juan 4:19" },
+            { texto: "Porque yo sé los pensamientos que tengo acerca de vosotros, dice Jehová, pensamientos de paz, y no de mal.", cita: "Jeremías 29:11" },
+            { texto: "Jehová se manifestó a mí hace ya mucho tiempo, diciendo: Con amor eterno te he amado; por tanto, te prolongué mi misericordia.", cita: "Jeremías 31:3" },
+            { texto: "Vengan a mí todos ustedes que están cansados y agobiados, y yo les daré descanso.", cita: "Mateo 11:28" }
         ];
 
         function cargarCarrusel() {
@@ -261,18 +260,16 @@
             if (diasFaltantes === 7) diasFaltantes = 0;
             
             culto.setDate(ahora.getDate() + diasFaltantes);
-            culto.setHours(11, 30, 0, 0); // Culto a las 11:30 AM
+            culto.setHours(11, 30, 0, 0);
 
-            // Si es domingo después de las 14:00 PM, calcular para la próxima semana
             if (ahora.getDay() === 0 && ahora.getHours() >= 14) {
                 culto.setDate(culto.getDate() + 7);
             }
 
             const dif = culto - ahora;
 
-            // Si es la hora del culto (Domingo entre 11:30 y 14:00)
             if (ahora.getDay() === 0 && ahora.getHours() >= 11 && ahora.getHours() < 14 && dif < 0) {
-                document.getElementById('reloj').innerHTML = '<div style="background:#dcfce7; color:#166534; padding:15px; border-radius:10px; font-weight:bold; text-align:center; width:100%; border: 1px solid #22c55e;"><i class="fas fa-door-open"></i> ¡El culto ya empezó! Te esperamos en la Casona Roja.</div>';
+                document.getElementById('reloj').innerHTML = '<div style="background:rgba(225, 29, 72, 0.1); color:var(--color-amor); padding:15px; border-radius:15px; font-weight:700; width:100%; border: 1px solid rgba(225, 29, 72, 0.2);"><i class="fas fa-door-open"></i> ¡El culto ya empezó! Ven, te estamos esperando.</div>';
                 return;
             }
 
