@@ -5,249 +5,241 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Iglesia IFAC - Yungay</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* PALETA DE COLORES Y VARIABLES */
+        /* VARIABLES DE ALTA GAMA */
         :root {
-            --color-texto: #2d3748;
-            --color-amor: #e11d48; /* Un tono cereza/rosa cálido */
-            --color-dorado: #d4af37;
-            --cristal-fondo: rgba(255, 255, 255, 0.85);
-            --cristal-borde: rgba(255, 255, 255, 0.4);
-            --sombra-suave: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+            --dorado-premium: #D4AF37;
+            --dorado-brillante: #FFDF73;
+            --texto-claro: #F8FAFC;
+            --cristal-oscuro: rgba(15, 15, 20, 0.65);
+            --borde-dorado: rgba(212, 175, 55, 0.35);
         }
+
+        * { box-sizing: border-box; }
 
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Poppins', sans-serif;
-            color: var(--color-texto);
+            font-family: 'Montserrat', sans-serif;
+            color: var(--texto-claro);
             overflow-x: hidden;
-            /* Imagen de fondo cálida y llena de luz */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1440590882496-ceb4408544e3?q=80&w=1920&auto=format&fit=crop');
+            /* IMAGEN DE FONDO RELIGIOSA Y CINEMATOGRÁFICA */
+            background-image: 
+                linear-gradient(to bottom, rgba(10, 10, 15, 0.7), rgba(10, 10, 15, 0.9)), 
+                url('https://images.unsplash.com/photo-1544832514-69e0618cb3e7?q=80&w=1920&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
 
-        /* Encabezado Flotante */
-        .encabezado {
-            margin: 20px auto;
-            max-width: 560px;
-            text-align: center;
-            padding: 0 20px;
-            animation: bajarSuave 1s ease-out forwards;
-        }
-        .encabezado img {
-            max-width: 100%;
-            border-radius: 20px;
-            box-shadow: var(--sombra-suave);
-            border: 2px solid var(--cristal-borde);
-        }
-
         .contenedor {
-            max-width: 600px;
+            max-width: 500px;
             margin: 0 auto;
-            padding: 0 20px 40px 20px;
+            padding: 20px 20px 60px 20px;
         }
 
-        /* Animaciones */
-        .animado {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: subirSuave 0.8s ease-out forwards;
-        }
-        .retraso-1 { animation-delay: 0.2s; }
-        .retraso-2 { animation-delay: 0.4s; }
-        .retraso-3 { animation-delay: 0.6s; }
-
-        @keyframes subirSuave { to { opacity: 1; transform: translateY(0); } }
-        @keyframes bajarSuave { 
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); } 
-        }
-
-        /* Tarjetas Estilo Cristal (Glassmorphism) */
-        .tarjeta-cristal {
-            background: var(--cristal-fondo);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-radius: 24px;
-            padding: 30px;
-            margin-bottom: 25px;
-            box-shadow: var(--sombra-suave);
-            border: 1px solid var(--cristal-borde);
+        /* Logo Elegante */
+        .header-logo {
             text-align: center;
+            margin-bottom: 35px;
+            animation: fadeInDown 1.2s ease-out;
+        }
+        .header-logo img {
+            max-width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            border: 2px solid var(--borde-dorado);
         }
 
-        .seccion-titulo {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--color-amor);
-            margin-top: 0;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
+        /* Tarjetas de Cristal Oscuro Premium */
+        .tarjeta-premium {
+            background: var(--cristal-oscuro);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 20px;
+            padding: 30px 25px;
+            margin-bottom: 30px;
+            border: 1px solid var(--borde-dorado);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-out forwards;
         }
+
+        /* Resplandor sutil en la tarjeta principal */
+        .tarjeta-premium::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(212, 175, 55, 0.1), transparent);
+            transform: skewX(-25deg); animation: brillo 6s infinite;
+        }
+
+        /* Tipografía de Lujo para Títulos */
+        .titulo-elegante {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: var(--dorado-premium);
+            margin: 0 0 20px 0;
+            text-align: center;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        
+        .titulo-elegante i { margin-right: 8px; font-size: 20px; }
 
         /* Mensaje de Bienvenida */
-        .mensaje-amor {
-            font-size: 16px;
-            line-height: 1.7;
-            color: #4a5568;
-            font-weight: 500;
-            margin-bottom: 20px;
-        }
-        .corazon-latido {
-            color: var(--color-amor);
-            animation: latir 1.5s infinite;
-            display: inline-block;
-        }
-        @keyframes latir {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
+        .texto-bienvenida {
+            text-align: center; font-size: 15px; line-height: 1.8; color: #CBD5E1; font-style: italic; font-weight: 300;
         }
 
-        /* Reloj de Cuenta Regresiva */
-        .reloj-contenedor {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 15px;
+        .texto-bienvenida strong { color: var(--dorado-brillante); font-weight: 500;}
+
+        /* Cuenta Regresiva de Alta Gama */
+        .reloj-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 25px;
         }
         .bloque-tiempo {
-            background: rgba(225, 29, 72, 0.1);
-            border: 1px solid rgba(225, 29, 72, 0.2);
-            color: var(--color-amor);
-            padding: 12px;
-            border-radius: 15px;
-            min-width: 65px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--borde-dorado);
+            border-radius: 12px; padding: 12px 5px; text-align: center;
+            box-shadow: inset 0 0 15px rgba(212, 175, 55, 0.05);
         }
-        .bloque-tiempo span { display: block; font-size: 24px; font-weight: 700; }
-        .bloque-tiempo small { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+        .bloque-tiempo span {
+            display: block; font-family: 'Playfair Display', serif; font-size: 26px; color: var(--dorado-brillante); line-height: 1; margin-bottom: 5px;
+        }
+        .bloque-tiempo small {
+            font-size: 9px; text-transform: uppercase; letter-spacing: 1.5px; color: #94A3B8;
+        }
 
-        /* --- PANCITOS DESLIZABLES --- */
-        .carrusel-contenedor {
-            width: 100%;
-            overflow-x: scroll;
-            -webkit-overflow-scrolling: touch;
-            scroll-snap-type: x mandatory;
-            display: flex;
-            gap: 15px;
-            padding-bottom: 10px;
+        /* Carrusel Swipeable Premium */
+        .carrusel-wrapper {
+            width: 100%; overflow-x: auto; scroll-snap-type: x mandatory; display: flex; gap: 15px; padding-bottom: 10px;
         }
-        .carrusel-contenedor::-webkit-scrollbar { display: none; }
+        .carrusel-wrapper::-webkit-scrollbar { display: none; }
         
-        .tarjeta-pancito {
-            flex: 0 0 88%;
-            scroll-snap-align: center;
-            background: linear-gradient(135deg, #ffffff, #fff5f5);
-            border-radius: 20px;
-            padding: 25px;
-            border: 1px solid #fed7e2;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(225, 29, 72, 0.05);
+        .tarjeta-versiculo {
+            flex: 0 0 90%; scroll-snap-align: center;
+            background: linear-gradient(145deg, rgba(20,20,25,0.8), rgba(10,10,15,0.9));
+            border-radius: 16px; padding: 25px; border-left: 3px solid var(--dorado-premium);
+            display: flex; flex-direction: column; justify-content: center;
         }
-        .texto-biblico { font-size: 17px; line-height: 1.6; color: #2d3748; font-style: italic; margin-bottom: 15px; font-weight: 500;}
-        .cita-biblica { font-weight: 700; color: var(--color-dorado); align-self: flex-end; font-size: 15px; }
-        .indicador-swipe { text-align: center; font-size: 13px; color: #718096; margin-top: 10px; font-weight: 600; opacity: 0.8; }
+        .texto-biblico { font-family: 'Playfair Display', serif; font-size: 18px; line-height: 1.6; color: #E2E8F0; font-style: italic; margin: 0 0 15px 0;}
+        .cita-biblica { font-size: 13px; color: var(--dorado-premium); font-weight: 600; text-align: right; letter-spacing: 1px; text-transform: uppercase;}
+        
+        .swipe-hint { text-align: center; font-size: 12px; color: #64748B; margin-top: 15px; letter-spacing: 1px; text-transform: uppercase; animation: pulse 2s infinite;}
 
         /* Ubicación */
-        .direccion-texto {
-            font-size: 16px; font-weight: 600; color: #2d3748; margin-bottom: 15px;
+        .caja-direccion {
+            background: rgba(0,0,0,0.3); padding: 15px; border-radius: 12px; text-align: center; margin-bottom: 20px; border: 1px dashed rgba(212, 175, 55, 0.4);
         }
-        .casona-destacada {
-            color: var(--color-amor); font-weight: 700; font-size: 18px; display: block; margin-top: 5px;
-        }
-        .mapa-contenedor {
-            width: 100%; height: 250px; border-radius: 18px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border: 3px solid rgba(255,255,255,0.8);
+        .caja-direccion p { margin: 5px 0; font-size: 15px; }
+        .casona-roja { font-family: 'Playfair Display', serif; color: var(--dorado-brillante); font-size: 20px; font-weight: 600; display: block; margin-top: 5px;}
+
+        .mapa-premium {
+            width: 100%; height: 220px; border-radius: 15px; border: 2px solid var(--borde-dorado); overflow: hidden; filter: grayscale(20%) contrast(110%);
         }
 
-        /* Botón Bloqueado */
+        /* Botón Inactivo Premium */
         .btn-bloqueado {
-            display: inline-block; width: 90%; background-color: rgba(203, 213, 225, 0.5); color: #64748b; padding: 15px 0; border-radius: 50px; font-weight: 600; margin-top: 15px; text-decoration: none; cursor: not-allowed; border: 1px solid #cbd5e1;
+            display: block; width: 100%; text-align: center; background: rgba(255,255,255,0.05); color: #94A3B8;
+            padding: 16px 0; border-radius: 50px; font-weight: 500; margin-top: 20px; text-decoration: none;
+            border: 1px solid rgba(255,255,255,0.1); cursor: not-allowed; letter-spacing: 1px; transition: 0.3s;
         }
+
+        /* Animaciones clave */
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes brillo { 100% { left: 200%; } }
+        @keyframes pulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+
     </style>
 </head>
 <body>
 
-    <header class="encabezado">
-        <img src="image_787fbf.jpg" alt="Iglesia IFAC Yungay">
-    </header>
+    <div class="contenedor">
+        
+        <header class="header-logo">
+            <img src="image_787fbf.jpg" alt="Iglesia IFAC Yungay">
+        </header>
 
-    <main class="contenedor">
-
-        <div class="tarjeta-cristal animado">
-            <h2 class="seccion-titulo">Bienvenido a Casa <i class="fas fa-heart corazon-latido"></i></h2>
+        <div class="tarjeta-premium">
+            <h2 class="titulo-elegante"><i class="fas fa-church"></i> Bienvenidos a Casa</h2>
             
-            <p class="mensaje-amor">
-                No importa cómo llegues hoy, aquí hay un abrazo, una oración y un lugar especial preparado para ti. Descubre el amor incondicional que Dios tiene para tu vida.
+            <p class="texto-bienvenida">
+                "Ven tal como eres. En la <strong>Casona Roja</strong> hemos preparado un lugar especial para ti. Descubre la paz, el amor y el propósito que Dios tiene para tu vida."
             </p>
             
-            <hr style="border: 0; border-top: 1px solid rgba(0,0,0,0.08); margin: 20px 0;">
+            <div style="text-align: center; margin-top: 20px;">
+                <span style="font-family: 'Playfair Display', serif; font-size: 18px; color: var(--dorado-premium);">Nuestro Próximo Culto</span><br>
+                <span style="font-size: 14px; color: #94A3B8; letter-spacing: 1px;">DOMINGOS • 11:30 AM a 14:00 PM</span>
+            </div>
             
-            <p style="font-size: 17px; color: #4a5568; font-weight: 600;">
-                <i class="far fa-calendar-alt" style="color: var(--color-dorado);"></i> Culto Dominical<br>
-                <span style="font-size: 15px; font-weight: 400;">11:30 AM a 14:00 PM</span>
-            </p>
-            
-            <div id="reloj" class="reloj-contenedor">
+            <div id="reloj" class="reloj-grid">
                 <div class="bloque-tiempo"><span id="dias">0</span><small>Días</small></div>
-                <div class="bloque-tiempo"><span id="horas">00</span><small>Horas</small></div>
+                <div class="bloque-tiempo"><span id="horas">00</span><small>Hrs</small></div>
                 <div class="bloque-tiempo"><span id="minutos">00</span><small>Min</small></div>
                 <div class="bloque-tiempo"><span id="segundos">00</span><small>Seg</small></div>
             </div>
         </div>
-        
-        <div class="tarjeta-cristal animado retraso-1">
-            <h2 class="seccion-titulo"><i class="fas fa-dove"></i> Alimento para el Alma</h2>
-            <div class="carrusel-contenedor" id="carrusel-pancitos"></div>
-            <p class="indicador-swipe"><i class="fas fa-arrows-alt-h"></i> Desliza para leer más</p>
+
+        <div class="tarjeta-premium delay-1">
+            <h2 class="titulo-elegante"><i class="fas fa-book-reader"></i> Alimento para el Alma</h2>
+            
+            <div class="carrusel-wrapper" id="carrusel-pancitos">
+                </div>
+            <div class="swipe-hint">← Desliza para leer más →</div>
         </div>
 
-        <div class="tarjeta-cristal animado retraso-2">
-            <h2 class="seccion-titulo"><i class="fas fa-map-marked-alt"></i> ¿Dónde nos reunimos?</h2>
-            <div class="direccion-texto">
-                Esquina Aníbal Pinto con Tarapacá<br>
-                <span class="casona-destacada">La Casona Roja - Yungay</span>
+        <div class="tarjeta-premium delay-2">
+            <h2 class="titulo-elegante"><i class="fas fa-map-marked-alt"></i> ¿Dónde estamos?</h2>
+            
+            <div class="caja-direccion">
+                <p>Esquina Aníbal Pinto con Tarapacá</p>
+                <span class="casona-roja">La Casona Roja • Yungay</span>
             </div>
             
-            <div class="mapa-contenedor">
-                <iframe src="https://maps.google.com/maps?q=Aníbal%20Pinto%20con%20Tarapacá,%20Yungay,%20Chile&t=&z=16&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
+            <iframe class="mapa-premium" src="https://maps.google.com/maps?q=Aníbal%20Pinto%20con%20Tarapacá,%20Yungay,%20Chile&t=&z=16&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
         </div>
 
-        <div class="tarjeta-cristal animado retraso-3" style="margin-bottom: 60px;">
-            <h2 class="seccion-titulo"><i class="fas fa-hands-helping"></i> Estamos contigo</h2>
-            <p style="color: #4a5568; margin-bottom: 5px;">Si tu corazón está cargado, necesitas un consejo o simplemente alguien que ore por ti, la <strong>Pastora Edith</strong> está dispuesta a escucharte con amor.</p>
-            <p style="font-size: 13px; color: #718096; font-style: italic;">El canal de WhatsApp se habilitará muy pronto.</p>
-            <a href="#" class="btn-bloqueado" onclick="event.preventDefault();"><i class="fab fa-whatsapp"></i> Pronto Disponible</a>
+        <div class="tarjeta-premium delay-3">
+            <h2 class="titulo-elegante"><i class="fas fa-hands-helping"></i> Estamos Contigo</h2>
+            <p class="texto-bienvenida" style="margin-bottom: 0;">
+                Si tu corazón está cargado, necesitas un consejo o simplemente requieres que alguien ore por ti, nuestra <strong>Pastora Edith</strong> está dispuesta a escucharte con amor.
+            </p>
+            <p style="text-align: center; font-size: 12px; color: #64748B; margin-top: 15px; letter-spacing: 1px;">CANAL DE ATENCIÓN EN PREPARACIÓN</p>
+            
+            <a href="#" class="btn-bloqueado" onclick="event.preventDefault();"><i class="fab fa-whatsapp"></i> WhatsApp Pronto Disponible</a>
         </div>
 
-    </main>
+    </div>
 
     <script>
         // --- 1. LÓGICA DEL CARRUSEL DE VERSÍCULOS ---
         const biblia = [
             { texto: "El amor es paciente, es bondadoso. El amor no es envidioso ni jactancioso ni orgulloso.", cita: "1 Corintios 13:4" },
-            { texto: "Nosotros amamos a Dios porque él nos amó primero.", cita: "1 Juan 4:19" },
+            { texto: "Con amor eterno te he amado; por tanto, te prolongué mi misericordia.", cita: "Jeremías 31:3" },
             { texto: "Porque yo sé los pensamientos que tengo acerca de vosotros, dice Jehová, pensamientos de paz, y no de mal.", cita: "Jeremías 29:11" },
-            { texto: "Jehová se manifestó a mí hace ya mucho tiempo, diciendo: Con amor eterno te he amado; por tanto, te prolongué mi misericordia.", cita: "Jeremías 31:3" },
-            { texto: "Vengan a mí todos ustedes que están cansados y agobiados, y yo les daré descanso.", cita: "Mateo 11:28" }
+            { texto: "Sobre todo, vístanse de amor, que es el vínculo perfecto.", cita: "Colosenses 3:14" },
+            { texto: "El Señor es tu guardador; el Señor es tu sombra a tu mano derecha.", cita: "Salmo 121:5" }
         ];
 
         function cargarCarrusel() {
             const carrusel = document.getElementById('carrusel-pancitos');
             const versiculos = biblia.sort(() => 0.5 - Math.random());
             versiculos.forEach(v => {
-                carrusel.innerHTML += `<div class="tarjeta-pancito"><p class="texto-biblico">"${v.texto}"</p><span class="cita-biblica">${v.cita}</span></div>`;
+                carrusel.innerHTML += `
+                <div class="tarjeta-versiculo">
+                    <p class="texto-biblico">"${v.texto}"</p>
+                    <span class="cita-biblica">${v.cita}</span>
+                </div>`;
             });
         }
 
@@ -269,7 +261,7 @@
             const dif = culto - ahora;
 
             if (ahora.getDay() === 0 && ahora.getHours() >= 11 && ahora.getHours() < 14 && dif < 0) {
-                document.getElementById('reloj').innerHTML = '<div style="background:rgba(225, 29, 72, 0.1); color:var(--color-amor); padding:15px; border-radius:15px; font-weight:700; width:100%; border: 1px solid rgba(225, 29, 72, 0.2);"><i class="fas fa-door-open"></i> ¡El culto ya empezó! Ven, te estamos esperando.</div>';
+                document.getElementById('reloj').innerHTML = '<div style="grid-column: span 4; background: rgba(212, 175, 55, 0.15); border: 1px solid var(--dorado-premium); padding: 15px; border-radius: 12px; text-align: center; color: var(--dorado-brillante); font-family: \'Playfair Display\', serif; font-size: 18px;"><i class="fas fa-door-open"></i> ¡El culto ya empezó! Te estamos esperando.</div>';
                 return;
             }
 
