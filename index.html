@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Iglesia IFAC - Yungay</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -25,23 +25,46 @@
             color: var(--texto-claro); overflow-x: hidden; background-color: #0a0a0f;
         }
 
-        /* FONDO CINEMATOGRÁFICO ANIMADO */
+        /* --- FONDO CINEMATOGRÁFICO CON 5 IMÁGENES --- */
         .fondo-animado { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; }
         .fondo-animado div {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-size: cover; background-position: center; opacity: 0; animation: fadeSlideshow 24s infinite;
+            background-size: cover; background-position: center; opacity: 0; 
+            /* 40 segundos en total (8 seg por cada una de las 5 fotos) */
+            animation: fadeSlideshow 40s infinite; 
         }
-        .fondo-animado div:nth-child(1) { background-image: linear-gradient(to bottom, rgba(10,10,15,0.7), rgba(10,10,15,0.9)), url('https://images.unsplash.com/photo-1544832514-69e0618cb3e7?q=80&w=1920&auto=format&fit=crop'); animation-delay: 0s; }
-        .fondo-animado div:nth-child(2) { background-image: linear-gradient(to bottom, rgba(10,10,15,0.7), rgba(10,10,15,0.9)), url('https://images.unsplash.com/photo-1510590337019-5ef8d3d32116?q=80&w=1920&auto=format&fit=crop'); animation-delay: 8s; }
-        .fondo-animado div:nth-child(3) { background-image: linear-gradient(to bottom, rgba(10,10,15,0.7), rgba(10,10,15,0.9)), url('https://images.unsplash.com/photo-1438232992991-995b7058bbb3?q=80&w=1920&auto=format&fit=crop'); animation-delay: 16s; }
+        /* 1. La Cruz */
+        .fondo-animado div:nth-child(1) { background-image: linear-gradient(to bottom, rgba(10,10,15,0.75), rgba(10,10,15,0.9)), url('https://images.unsplash.com/photo-1544832514-69e0618cb3e7?q=80&w=1920&auto=format&fit=crop'); animation-delay: 0s; }
+        /* 2. Biblia Abierta */
+        .fondo-animado div:nth-child(2) { background-image: linear-gradient(to bottom, rgba(10,10,15,0.75), rgba(10,10,15,0.9)), url('https://images.unsplash.com/photo-1504052434569-70ad5836ab65?q=80&w=1920&auto=format&fit=crop'); animation-delay: 8s; }
+        /* 3. Manos Orando Unidas */
+        .fondo-animado div:nth-child(3) { background-image: linear-gradient(to bottom, rgba(10,10,15,0.75), rgba(10,10,15,0.9)), url('https://images.unsplash.com/photo-1529070538774-1843cb16110e?q=80&w=1920&auto=format&fit=crop'); animation-delay: 16s; }
+        /* 4. Adoración */
+        .fondo-animado div:nth-child(4) { background-image: linear-gradient(to bottom, rgba(10,10,15,0.75), rgba(10,10,15,0.9)), url('https://images.unsplash.com/photo-1510590337019-5ef8d3d32116?q=80&w=1920&auto=format&fit=crop'); animation-delay: 24s; }
+        /* 5. Luz/Paisaje */
+        .fondo-animado div:nth-child(5) { background-image: linear-gradient(to bottom, rgba(10,10,15,0.75), rgba(10,10,15,0.9)), url('https://images.unsplash.com/photo-1438232992991-995b7058bbb3?q=80&w=1920&auto=format&fit=crop'); animation-delay: 32s; }
 
-        @keyframes fadeSlideshow { 0% { opacity: 0; transform: scale(1); } 10% { opacity: 1; } 25% { opacity: 1; } 35% { opacity: 0; transform: scale(1.05); } 100% { opacity: 0; } }
+        @keyframes fadeSlideshow { 
+            0% { opacity: 0; transform: scale(1); } 
+            5% { opacity: 1; } 
+            15% { opacity: 1; } 
+            20% { opacity: 0; transform: scale(1.05); } 
+            100% { opacity: 0; } 
+        }
 
-        .contenedor { max-width: 500px; margin: 0 auto; padding: 30px 20px 60px 20px; position: relative; z-index: 1; }
+        .contenedor { max-width: 500px; margin: 0 auto; padding: 25px 20px 60px 20px; position: relative; z-index: 1; }
 
         /* Logo */
-        .header-logo { text-align: center; margin-bottom: 40px; animation: fadeInDown 1s ease-out; }
+        .header-logo { text-align: center; margin-bottom: 25px; animation: fadeInDown 1s ease-out; }
         .header-logo img { max-width: 100%; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.6); border: 1px solid var(--borde-dorado); }
+
+        /* --- NUEVO: MENSAJE JESÚS TE AMA --- */
+        .mensaje-jesus {
+            text-align: center; font-size: 20px; font-weight: 700; letter-spacing: 6px; 
+            color: var(--texto-claro); margin-bottom: 35px;
+            text-shadow: 0 0 25px rgba(255, 223, 115, 0.4);
+            animation: fadeInDown 1.2s ease-out forwards;
+        }
 
         /* Tarjetas Principales */
         .tarjeta-premium {
@@ -50,20 +73,23 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.5); opacity: 0; transform: translateY(30px); animation: fadeInUp 0.8s ease-out forwards;
         }
 
+        /* --- CORRECCIÓN DEL TÍTULO PARA CELULARES --- */
         .titulo-elegante { 
-            font-family: 'Playfair Display', serif; font-size: 26px; 
-            background: linear-gradient(to right, var(--dorado-premium), var(--dorado-brillante));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            margin: 0 0 25px 0; text-align: center; font-weight: 700; letter-spacing: 0.5px;
+            font-family: 'Playfair Display', serif; 
+            /* Usa clamp para que se adapte perfecto: mínimo 20px, ideal 6vw, máximo 26px */
+            font-size: clamp(20px, 6vw, 26px); 
+            color: var(--dorado-brillante); /* Color sólido sin efectos que rompan el cel */
+            margin: 0 0 20px 0; text-align: center; font-weight: 700; letter-spacing: 0.5px;
+            line-height: 1.3;
         }
 
         /* Reloj */
         .reloj-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
         .bloque-tiempo { background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(212, 175, 55, 0.15); border-radius: 14px; padding: 15px 5px; text-align: center; }
-        .bloque-tiempo span { display: block; font-family: 'Playfair Display', serif; font-size: 28px; color: var(--dorado-brillante); line-height: 1; margin-bottom: 6px; }
+        .bloque-tiempo span { display: block; font-family: 'Playfair Display', serif; font-size: clamp(22px, 6vw, 28px); color: var(--dorado-brillante); line-height: 1; margin-bottom: 6px; }
         .bloque-tiempo small { font-size: 9px; text-transform: uppercase; letter-spacing: 2px; color: #94A3B8; font-weight: 500;}
 
-        /* --- NUEVO: PANCITO ÚNICO Y ALEATORIO --- */
+        /* Pancito Único */
         .caja-pancito-unico {
             background: linear-gradient(145deg, rgba(20,20,25,0.6), rgba(5,5,10,0.8));
             border-radius: 16px; padding: 30px 20px; border-left: 3px solid var(--dorado-premium);
@@ -71,21 +97,18 @@
             position: relative; overflow: hidden; margin-bottom: 20px;
         }
         
-        /* Efecto de transición suave al cambiar la palabra */
         .pancito-contenido { transition: opacity 0.6s ease; opacity: 1; }
         .pancito-contenido.oculto { opacity: 0; }
-
         .icono-comillas { font-size: 24px; color: rgba(212, 175, 55, 0.3); margin-bottom: 10px; }
-        .texto-biblico { font-family: 'Playfair Display', serif; font-size: 20px; line-height: 1.6; color: #E2E8F0; font-style: italic; margin: 0 0 15px 0; font-weight: 400;}
+        .texto-biblico { font-family: 'Playfair Display', serif; font-size: 19px; line-height: 1.6; color: #E2E8F0; font-style: italic; margin: 0 0 15px 0; font-weight: 400;}
         .cita-biblica { font-size: 13px; color: var(--dorado-premium); font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;}
 
         .btn-cambiar-palabra {
             background: transparent; border: 1px solid var(--dorado-premium); color: var(--dorado-brillante);
-            padding: 12px 20px; border-radius: 50px; font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 500;
+            padding: 14px 20px; border-radius: 50px; font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 500;
             cursor: pointer; width: 100%; transition: 0.3s; letter-spacing: 1px; text-transform: uppercase;
         }
         .btn-cambiar-palabra:active { transform: scale(0.95); background: rgba(212, 175, 55, 0.1); }
-        .btn-cambiar-palabra i { margin-right: 8px; }
 
         /* Ubicación */
         .caja-direccion { background: rgba(0,0,0,0.4); padding: 18px; border-radius: 14px; text-align: center; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.05); }
@@ -131,7 +154,7 @@
 <body>
 
     <div class="fondo-animado">
-        <div></div><div></div><div></div>
+        <div></div><div></div><div></div><div></div><div></div>
     </div>
 
     <div class="contenedor">
@@ -140,7 +163,11 @@
             <img src="image_787fbf.jpg" alt="Iglesia IFAC Yungay">
         </header>
 
-        <div class="tarjeta-premium">
+        <div class="mensaje-jesus">
+            JESÚS TE AMA
+        </div>
+
+        <div class="tarjeta-premium delay-1">
             <h2 class="titulo-elegante">Bienvenidos a Casa</h2>
             <div style="text-align: center; margin-top: 10px; margin-bottom: 25px;">
                 <span style="font-size: 15px; color: #CBD5E1; letter-spacing: 1px;">DOMINGOS • 11:30 AM</span>
@@ -153,7 +180,7 @@
             </div>
         </div>
 
-        <div class="tarjeta-premium delay-1">
+        <div class="tarjeta-premium delay-2">
             <h2 class="titulo-elegante">Palabra de Vida</h2>
             
             <div class="caja-pancito-unico">
@@ -169,7 +196,7 @@
             </button>
         </div>
 
-        <div class="tarjeta-premium delay-2">
+        <div class="tarjeta-premium delay-3">
             <h2 class="titulo-elegante">¿Dónde estamos?</h2>
             <div class="caja-direccion">
                 <span class="casona-roja">La Casona Roja</span>
@@ -243,21 +270,16 @@
 
         let versoAnterior = -1;
 
-        // FUNCIÓN MÁGICA PARA GENERAR UN PANCITO ÚNICO
         function generarPancito() {
             const contenedor = document.getElementById('contenido-versiculo');
             const textoHTML = document.getElementById('texto-pancito');
             const citaHTML = document.getElementById('cita-pancito');
             
-            // Efecto de desvanecer hacia afuera
             contenedor.classList.add('oculto');
             
             setTimeout(() => {
-                // Elegir un versículo distinto al anterior
                 let nuevoIndice;
-                do {
-                    nuevoIndice = Math.floor(Math.random() * biblia.length);
-                } while (nuevoIndice === versoAnterior);
+                do { nuevoIndice = Math.floor(Math.random() * biblia.length); } while (nuevoIndice === versoAnterior);
                 
                 versoAnterior = nuevoIndice;
                 const versoElegido = biblia[nuevoIndice];
@@ -265,12 +287,10 @@
                 textoHTML.innerText = `"${versoElegido.texto}"`;
                 citaHTML.innerText = versoElegido.cita;
                 
-                // Efecto de aparecer suavemente
                 contenedor.classList.remove('oculto');
-            }, 600); // Espera 0.6 segundos mientras está transparente para hacer el cambio
+            }, 600); 
         }
 
-        // RELOJ
         function actualizarReloj() {
             const ahora = new Date(); let culto = new Date();
             let diasFaltantes = 7 - ahora.getDay(); if (diasFaltantes === 7) diasFaltantes = 0;
@@ -290,7 +310,7 @@
         }
 
         window.onload = () => { 
-            generarPancito(); // Llama un versículo apenas carga la página
+            generarPancito(); 
             setInterval(actualizarReloj, 1000); 
             actualizarReloj(); 
         };
