@@ -3,10 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <!-- Meta tags para PWA (App) -->
+    
+    <!-- === ETIQUETAS OPEN GRAPH (PARA WHATSAPP Y REDES SOCIALES) === -->
+    <meta property="og:title" content="Iglesia IFAC - Yungay | Bienvenido a Casa">
+    <meta property="og:description" content="Un lugar donde cualquiera es bienvenido. Acompáñanos este domingo, pide una oración o escríbenos. Jesús te ama.">
+    <!-- IMPORTANTE: Cambia esta URL por un enlace real a una foto bonita de la iglesia o su logo para que aparezca en la miniatura de WhatsApp -->
+    <meta property="og:image" content="https://images.unsplash.com/photo-1544832514-69e0618cb3e7?q=80&w=600&auto=format&fit=crop">
+    <meta property="og:url" content="https://tu-dominio-iglesia.cl">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- === ETIQUETAS PWA (PARA INSTALAR COMO APP) === -->
     <meta name="theme-color" content="#0a0a0f">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="icono-app-192.png">
+    <link rel="manifest" href="manifest.json"> <!-- Aquí vinculamos el archivo Manifest -->
+
     <title>Iglesia IFAC - Yungay</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
@@ -135,9 +148,9 @@
         /* CARRUSEL DE EVENTOS */
         .carrusel-contenedor {
             display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 15px; padding-bottom: 15px;
-            -ms-overflow-style: none; /* IE y Edge */ scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; scrollbar-width: none; 
         }
-        .carrusel-contenedor::-webkit-scrollbar { display: none; /* Chrome, Safari, Opera */ }
+        .carrusel-contenedor::-webkit-scrollbar { display: none; }
         .evento-card {
             min-width: 85%; scroll-snap-align: center; background: rgba(0,0,0,0.6); 
             border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 16px; padding: 20px; text-align: left;
@@ -176,7 +189,6 @@
     <div id="preloader"><i class="fas fa-cross preloader-icono"></i></div>
 
     <!-- AUDIO AMBIENTAL OCULTO -->
-    <!-- Puedes cambiar el src por un enlace de instrumental cristiano en MP3 -->
     <audio id="audio-fondo" loop>
         <source src="https://cdn.pixabay.com/download/audio/2022/11/22/audio_febc6eb634.mp3" type="audio/mpeg">
     </audio>
@@ -257,7 +269,6 @@
         <div class="tarjeta-premium reveal">
             <h2 class="titulo-elegante" style="font-size: 24px;">Nuestro Liderazgo</h2>
             <div class="perfil-liderazgo">
-                <!-- Cambia el link por la foto real de la pastora -->
                 <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80" alt="Pastora Edith" class="foto-pastora">
                 <div>
                     <h3 style="margin: 0 0 5px 0; color: var(--dorado-brillante); font-size: 18px; font-family: 'Playfair Display', serif;">Pastora Edith</h3>
@@ -276,7 +287,7 @@
                 <i class="fas fa-chevron-down"></i>
             </button>
             <div id="info-banco" class="acordeon-contenido">
-                <p style="margin: 5px 0; font-size: 14px;"><strong>Banco:</strong> BancoEstado (Ejemplo)</p>
+                <p style="margin: 5px 0; font-size: 14px;"><strong>Banco:</strong> BancoEstado</p>
                 <p style="margin: 5px 0; font-size: 14px;"><strong>Tipo:</strong> Cuenta Rut</p>
                 <p style="margin: 5px 0; font-size: 14px;"><strong>RUT:</strong> 12.345.678-9</p>
                 <p style="margin: 5px 0; font-size: 14px;"><strong>Nombre:</strong> Iglesia IFAC Yungay</p>
@@ -291,7 +302,6 @@
             </button>
             <div id="info-qr" class="acordeon-contenido" style="text-align: center;">
                 <p style="font-size: 13px; color: #CBD5E1;">Escanea este código desde la App de tu banco.</p>
-                <!-- Generador de QR de prueba -->
                 <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Donacion+Iglesia+IFAC" alt="QR Donación" class="qr-donacion">
             </div>
         </div>
@@ -317,7 +327,6 @@
             }, 800);
         });
 
-        // Intersection Observer para que aparezcan las tarjetas al hacer scroll
         const revealElements = document.querySelectorAll('.reveal');
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -355,7 +364,7 @@
             }
         }
 
-        // 4. ACORDEONES (Para la sección de ofrendas)
+        // 4. ACORDEONES
         function toggleAcordeon(id) {
             const contenido = document.getElementById(id);
             const icono = contenido.previousElementSibling.querySelector('.fa-chevron-down');
@@ -364,7 +373,6 @@
                 contenido.classList.remove('activo');
                 icono.style.transform = 'rotate(0deg)';
             } else {
-                // Cerrar todos los demás primero
                 document.querySelectorAll('.acordeon-contenido').forEach(el => {
                     el.classList.remove('activo');
                     el.previousElementSibling.querySelector('.fa-chevron-down').style.transform = 'rotate(0deg)';
